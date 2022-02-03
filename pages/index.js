@@ -1,5 +1,7 @@
 import Letters from "../components/letters";
 import ThreeD from "../components/3d/threeD";
+import TextCustum from "../components/3d/TextCustum";
+import NewBox from "../components/3d/NewBox";
 
 export default function Home() {
   return (
@@ -12,6 +14,7 @@ export default function Home() {
         <Letters letter="O" />
         <Letters letter="N" />
       </div>
+
       <div className="flex h-full  w-full items-center justify-center">
         <h1 className="textstrok flex h-full items-center justify-center text-[150px] font-black text-transparent">
           SPONEX
@@ -27,6 +30,12 @@ export default function Home() {
       </div>
       <div className="">
         <ThreeD />
+      </div>
+      <div className="">
+        <TextCustum />
+      </div>
+      <div className="">
+        <NewBox />
       </div>
     </div>
   );
