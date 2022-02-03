@@ -2,6 +2,7 @@ import Letters from "../components/letters";
 import ThreeD from "../components/3d/threeD";
 import TextCustum from "../components/3d/TextCustum";
 import NewBox from "../components/3d/NewBox";
+import BoxTest from "../components/3d/BoxTest";
 
 export default function Home() {
   return (
@@ -36,6 +37,9 @@ export default function Home() {
       </div>
       <div className="">
         <NewBox />
+      </div>
+      <div className="">
+        <BoxTest />
       </div>
     </div>
   );

@@ -36,18 +36,18 @@ export default function ThreeD() {
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]} receiveShadow>
               <planeBufferGeometry attach="geometry" args={[20, 20]} />
               <shadowMaterial attach="material" opacity={0.3} />
-              <meshStandardMaterial attach="material" color="#25166c" />
+              <meshStandardMaterial attach="material" color="#01023a" />
             </mesh>
 
             <SpiningBox
               position={[0, 1, 0]}
               args={[3, 2, 1]}
-              color="#01023a"
-              hoverColored="#FBA919"
+              color="#FBA919"
+              hoverColored="#01023a"
               speed={2}
             />
-            <SpiningBox position={[-2, 1, -5]} color="#01023a" hoverColored="#FBA919" speed={6} />
-            <SpiningBox position={[5, 1, -2]} color="#01023a" hoverColored="#FBA919" speed={6} />
+            <SpiningBox position={[-2, 1, -5]} color="#FBA919" hoverColored="#01023a" speed={6} />
+            <SpiningBox position={[5, 1, -2]} color="#FBA919" hoverColored="#01023a" speed={6} />
           </group>
 
           <OrbitControls />

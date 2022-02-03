@@ -1,5 +1,13 @@
 import { Canvas } from "@react-three/fiber";
-import { softShadows, Stars, Text, PresentationControls } from "@react-three/drei";
+import {
+  OrbitControls,
+  softShadows,
+  Stars,
+  Text,
+  useTexture,
+  PresentationControls,
+} from "@react-three/drei";
+import { mass } from "@react-spring/three";
 softShadows();
 
 export default function TextCustum() {
@@ -19,7 +27,7 @@ export default function TextCustum() {
           speed={1} // Speed factor
           zoom={1} // Zoom factor when half the polar-max is reached
           rotation={[0, 0, 0]} // Default rotation
-          polar={[0, (Math.PI * 4) / 2]} // Vertical limits
+          polar={[0, Math.PI / 2]} // Vertical limits
           azimuth={[-Infinity, Infinity]} // Horizontal limits
         >
           {" "}

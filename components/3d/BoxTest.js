@@ -3,63 +3,46 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import {
   OrbitControls,
   useTexture,
-  RoundedBox,
+  Box,
   SpotLight,
   softShadows,
   Environment,
   Stars,
+  MeshWobbleMaterial,
 } from "@react-three/drei";
 softShadows();
 
 function BoxNext({ args, position }) {
   const spiningBoxs = useRef();
-  const sponex = useTexture("images/sponex-logo.jpg");
+  const sponex = useTexture("images/spnx_black.jpg");
   useFrame(() => {
     spiningBoxs.current.rotation.x = spiningBoxs.current.rotation.y += 0.01;
   });
   return (
     <>
-      <RoundedBox
-        radius={0.5} // Border-Radius of the box
+      <Box
+        radius={0.1} // Border-Radius of the box
         smoothness={50} // Optional, number of subdivisions
         position={position}
         castShadow
         args={args}
         ref={spiningBoxs}
       >
-        <meshStandardMaterial
-          metalness={1}
-          roughness={0}
+        <MeshWobbleMaterial
+          metalness={0.9}
+          roughness={0.2}
           map={sponex}
           attach="material"
-          color="#F05483"
+          color="#FBA919"
         />
-      </RoundedBox>
+      </Box>
     </>
   );
 }
 
-// function WobbleCamera() {
-//   const shakeRef = useRef();
-//   const orbitRef = useRef();
-//   useEffect(() => {
-//     orbitRef.current.addEventListener("change", () => {
-//       const shake = shakeRef.current.getIntensity();
-//       shakeRef.current.setIntensity(shake + 0.015);
-//     });
-//   }, [orbitRef]);
-
-//   return (
-//     <>
-//       <OrbitControls ref={orbitRef} />
-//       <CameraShake ref={shakeRef} additive decay />
-//     </>
-//   );
-// }
-
-function NewBox() {
+function BoxTest() {
   return (
-    <div className="bg-pink h-screen w-screen">
+    <div className="bg-orange h-screen w-screen">
       <Canvas shadows camera={{ position: [-5, 2, 10], fov: 50 }}>
         <Suspense fallback={null}>
           <Stars />
@@ -78,17 +61,14 @@ function NewBox() {
             shadow-camera-bottom={-10}
           />
 
-          <group>
-            <BoxNext position={[0, 1, 0]} args={[3, 2, 1]} color="#01023a" />
-            <BoxNext position={[-2, 1, -5]} color="#01023a" />
-          </group>
+          <BoxNext position={[1, 1, 1]} args={[3, 3, 3]} color="#01023a" />
           <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]} receiveShadow>
             <planeBufferGeometry attach="geometry" args={[20, 20]} />
-            <shadowMaterial attach="material" opacity={1} />
+            <shadowMaterial attach="material" opacity={0.3} />
             {/* <meshStandardMaterial attach="material" color="trasparent" /> */}
           </mesh>
 
-          <OrbitControls autoRotate={true} />
+          <OrbitControls />
           <Environment
             background={false} // Whether to affect scene.background
             // files={["px.png", "nx.png", "py.png", "ny.png", "pz.png", "nz.png"]} // Array of cubemap files OR single equirectangular file
@@ -104,4 +84,4 @@ function NewBox() {
   );
 }
 
-export default NewBox;
+export default BoxTest;
